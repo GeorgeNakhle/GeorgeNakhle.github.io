@@ -1,0 +1,141 @@
+/********** AREAS **********/
+
+aside {
+    grid-area: aside;
+}
+
+main {
+    grid-area: main;
+}
+
+footer {
+    grid-area: footer;
+    background-color: red !important;
+}
+
+aside, footer {
+    background-color: #808CBE;
+    color: white;
+    text-align: center;
+}
+
+body {
+    background-color: #181A1B;
+    color: white;
+    font-family: Lato, sans-serif;
+    margin: 0px;
+    
+    /* CSS grid */
+    display: grid;
+    grid-template-columns: 25% 77%;
+    grid-template-areas: 
+        "aside main"
+        "aside main"
+        "footer main";
+}
+
+/********** AREAS **********/
+
+/********** ASIDE **********/
+
+#portrait {
+    width: 200px;
+    height: 200px;
+    border: 4px solid white;
+    border-radius: 50%;
+    margin: 40px 20px;
+    margin-bottom: 0;
+}
+
+#author-content {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+#fullName {
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0;
+}
+
+#subtitle {
+    font-size: 13px;
+}
+
+#sidebarList {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.sidebarListItem {
+    font-size: 16px;
+    font-weight: 700;
+    border-top: 3px solid white;
+}
+
+.sidebarListItem:last-child {
+    border-bottom: 3px solid white;
+}
+
+.sidebarListItem a {
+    display: block;
+    color: inherit;
+    padding: 20px 20px;
+    text-decoration: none;
+}
+
+.sidebarListItem a:hover {
+    background-color: #181A1B;
+    color: white;
+}
+
+#socialsList {
+    list-style-type: none;
+    margin: 0;
+}
+
+.socialsListItem {
+    float: left;
+    padding: 10px;
+}
+
+.socialsListItem a {
+    display: block;
+    background-color: #353f69;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border: 1px;
+    border-radius: 15%;
+}
+
+.socialsListItem a:hover { 
+    background-color: white;
+}
+
+.socialsListItem a:hover > img {
+    filter: invert(72%) sepia(3%) saturate(5148%) hue-rotate(193deg) brightness(79%) contrast(85%);
+}
+
+.sidebarListItem a:hover, .socialsListItem a:hover, .socialsListItem a:hover > img {
+    transition: all .5s ease;
+}
+
+.socialsListItem img {
+    width: 20px;
+    height: 20px;
+    filter: brightness(0) invert(1);
+}
+
+/********** ASIDE **********/
+
+/********** FOOTER **********/
+
+/********** FOOTER **********/
+
+/********** MAIN **********/
+
+/********** MAIN **********/
