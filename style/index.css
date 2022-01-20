@@ -147,4 +147,22 @@ section {
     padding: 25px;
 }
 
+.mainHeader {
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.headerLine {
+    width: 60px;
+    height: 3px;
+    background-color: #808CBE;
+    margin: 15px auto;
+}
+
+.headerSubitle {
+    font-size: 20px;
+    text-align: center;
+}
+
 /********** MAIN **********/
