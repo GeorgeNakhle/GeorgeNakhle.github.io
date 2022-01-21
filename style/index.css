@@ -197,6 +197,19 @@ section:last-child {
     vertical-align: top;
 }
 
+.colContainerImage {
+    display: flex;
+    justify-content: center;
+}
+
+.colContainer > img {
+    padding: 0px 0px 30px 0px;
+}
+
+.row:last-child > div > .colContainerImage > img {
+    padding: 0px 0px 0px 0px;
+}
+
 .colText {
     font-size: 16px;
     line-height: 24px;
@@ -241,12 +254,12 @@ section:last-child {
 /* PROJECT STYLING */
 /* PROJECT STYLING */
 
-.emailLink {
+.mainLink {
     text-decoration: none;
     color: #808CBE;
 }
 
-.emailLink:hover {
+.mainLink:hover {
     text-decoration: none;
     color: #353f69;
 }
@@ -266,6 +279,7 @@ section:last-child {
     border: 1px solid white;
     font-size: 14px;
     padding: 6px 12px 6px 15px;
+    transition: none;
 }
 
 .contactField > input::placeholder, .contactField > textarea::placeholder {
