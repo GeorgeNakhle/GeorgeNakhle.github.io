@@ -184,8 +184,8 @@ section {
     width: inherit;
     height: 3px;
     background-color: white;
-    margin-left: 25px;
-    margin-right: 25px;
+    margin-left: 40px;
+    margin-right: 40px;
 }
 
 .colContainer {
@@ -223,6 +223,13 @@ section {
     background-color: #808CBE;
 }
 
-/********** MAIN **********/
+.centerButton {
+    display: flex;
+    justify-content: center;
+}
 
-https://www.facebook.com/groups/2183081031768484/
+.centerButton > a {
+    margin: 0;
+}
+
+/********** MAIN **********/
