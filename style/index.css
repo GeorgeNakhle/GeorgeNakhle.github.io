@@ -22,13 +22,19 @@ body {
 
 aside {
     grid-area: aside;
-    position: sticky;
-    top: 0;
+    position: fixed;
     height: 100vh;
+    width: 280px;
     background-color: #808CBE;
     color: white;
     text-align: center;
-    overflow: visible;
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll; 
+}
+
+aside::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
 }
 
 main {
@@ -136,8 +142,12 @@ main {
 
 #footer-content {
     font-size: 13px;
-    padding: 30px 0px 0px 0px;
+    padding: 30px 0px 30px 0px;
     line-height: 24px;
+}
+
+#footer-content > p {
+    margin: 0;
 }
 
 #footer-content > p > a {
