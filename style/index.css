@@ -106,17 +106,21 @@ main {
     border-bottom: 1px solid white;
 }
 
-.socialsListItem, .socialsListItem a {
+.socialsListItem {
+    display: inline-block;
+}
+
+.socialsListItem a {
     display: inline-block;
     background-color: #353f69;
     color: white;
     text-align: center;
-    padding: 10px 10px;
+    padding: 20px;
     text-decoration: none;
     transition: 0.5s;
 }
 
-.socialsListItem:hover, .socialsListItem a:hover { 
+.socialsListItem a:hover { 
     background-color: white;
 }
 
@@ -146,7 +150,7 @@ main {
 /********** MAIN **********/
 
 .window {
-    box-shadow: 0 0 0 99999px rgba(9, 10, 11, .9)
+    box-shadow: 0 0 0 99999px rgba(9, 10, 11, .925)
     /* https://stackoverflow.com/questions/58283119/create-a-transparent-window-in-a-div-background-with-css-and-javascript */
 }
 
