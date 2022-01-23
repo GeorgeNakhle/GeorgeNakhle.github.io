@@ -306,10 +306,9 @@ section > .articleRow:last-child {
 .submitButtonContainer {
     display: flex;
     justify-content: center;
-
 }
 
-.submitButtonContainer > button {
+.submitButton {
     background-color: transparent;
     border: 3px solid white;
     padding: 12px 20px 12px 20px;
@@ -320,7 +319,7 @@ section > .articleRow:last-child {
     text-transform: uppercase;
 }
 
-.submitButtonContainer > button:hover {
+.submitButton:hover {
     background-color: #808CBE;
 }
 
