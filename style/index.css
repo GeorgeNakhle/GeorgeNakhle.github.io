@@ -199,14 +199,18 @@ section:last-child {
 
 .colContainerImage {
     display: flex;
-    justify-content: center;
+    justify-content: center
 }
 
 .colContainer > img {
     padding: 0px 0px 30px 0px;
 }
 
-.row:last-child > div > .colContainerImage > img {
+.articleRow {
+    padding: 0px 0px 80px 0px;
+}
+
+section > .articleRow:last-child {
     padding: 0px 0px 0px 0px;
 }
 
@@ -249,6 +253,10 @@ section:last-child {
     margin: 0;
 }
 
+.centerButton > a, .buttonContainer > a {
+    white-space: nowrap;
+}
+
 /* PROJECT STYLING */
 /* PROJECT STYLING */
 /* PROJECT STYLING */
@@ -280,6 +288,10 @@ section:last-child {
     font-size: 14px;
     padding: 6px 12px 6px 15px;
     transition: none;
+}
+
+.contactField > input:focus, .contactField > textarea:focus {
+    outline: none;
 }
 
 .contactField > input::placeholder, .contactField > textarea::placeholder {
