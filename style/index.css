@@ -31,6 +31,7 @@ aside {
     -ms-overflow-style: none; /* for Internet Explorer, Edge */
     scrollbar-width: none; /* for Firefox */
     overflow-y: scroll; 
+    transition: 0s !important; /* not active property overwrites this */
 }
 
 aside::-webkit-scrollbar {
@@ -203,8 +204,7 @@ section:last-child {
     width: inherit;
     height: 3px;
     background-color: white;
-    margin-left: 40px;
-    margin-right: 40px;
+    margin: 0px 40px 0px 40px;
 }
 
 .colContainer {
@@ -234,7 +234,7 @@ section > .articleRow:last-child {
 
 .colImage {
     display: block;
-    max-width: 100%;
+    width: 100%;
     border-radius: 5px;
 }
 
@@ -247,7 +247,7 @@ section > .articleRow:last-child {
     border: 3px solid white;
     width: min-content;
     padding: 12px 20px 12px 20px;
-    margin: 10px 10px 0px 0px;
+    margin: 0px 10px 16px 0px;
     color: white;
     font-size: 13px;
     font-weight: 800;
@@ -277,25 +277,23 @@ section > .articleRow:last-child {
 /********** PROJECTS **********/
 
 .hoverImageContainer {
-    background-color: #808CBE;
+    background-color: #181A1B;
     border-radius: 5px;
     margin: 0px 0px 30px 0px;
-    width: 100%;
 }
 
 .hoverDiv {
+    width: 300px;
+    align-self: center; /* Vertical alignment */
     transition: .5s ease;
     opacity: 0;
     position: absolute;
     text-align: center;
-    padding: 30px;
-    width: min-content;
 }
 
 .hoverImage {
     opacity: 1;
     display: block;
-    width: 100%;
     height: auto;
     transition: .5s ease;
     backface-visibility: hidden;
@@ -310,30 +308,35 @@ section > .articleRow:last-child {
 }
 
 .hoverTitle {
-    font-size: 16px;
+    font-size: 26px;
     font-weight: 700;
+    padding: 0px 0px 5px 0px;
+    line-height: 30px;
 }
 
 .hoverText {
     font-size: 14px;
     font-weight: 400;
     font-style: italic;
+    padding: 0px 0px 15px 0px;
 }
 
 .hoverButton {
     font-size: 13px;
     font-weight: 800;
+    text-decoration: none;
     text-transform: uppercase;
-    background-color: #353f69;
     color: white;
+    background-color: #353f69;
     border: 3px solid white;
     width: min-content;
     white-space: nowrap;
-    padding: 12px 20px 20px 12px;
+    padding: 12px 20px 12px 20px;
 }
 
 .hoverButton:hover {
     background-color: #808CBE;
+    color: white;
 }
 
 /* https://www.w3schools.com/howto/howto_css_image_overlay.asp */

@@ -16,16 +16,3 @@ for (var i = 0; i < sidebarListItems.length; i++) {
 }
 
 //**********//
-
-// // Get all project images
-// var hoverImages = document.getElementsByClassName("hoverImage");
-// // Get all project captions
-// // Loop through projects
-// for (var i = 0; i < hoverImages.length; i++) {
-//     hoverImages[i].onmouseover = function() {
-//         this.style.width = "100px";
-//     }
-//     hoverImages[i].onmouseout = function() {
-//         this.style.width = "200px";
-//     }
-// }
