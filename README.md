@@ -13,10 +13,10 @@ This is my personal website written with HTML, CSS, and JavaScript.
 - **Résumé**
   - PDF link
 - **Projects**
-  - Instant messaging app
-  - SpaceX statistics website
-  - BluBot Discord bot
-  - Amiibo Store
+  - Team Talk App
+  - BlueBot Discord Bot
+  - Bike Guys® Store
+  - SpaceX Statistics Website
 - **Contact Me**
   - Email link
   - Message form

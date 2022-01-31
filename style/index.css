@@ -11,7 +11,7 @@ body {
     background-color: #181A1B;
     color: white;
     font-family: Lato, sans-serif;
-    margin: 0px;
+    margin: 0;
     
     /* CSS grid */
     display: grid;
@@ -247,7 +247,7 @@ section > .articleRow:last-child {
     border: 3px solid white;
     width: min-content;
     padding: 12px 20px 12px 20px;
-    margin: 0px 10px 16px 0px;
+    margin: 0px 10px 0px 0px;
     color: white;
     font-size: 13px;
     font-weight: 800;
@@ -275,6 +275,10 @@ section > .articleRow:last-child {
 /********** RÉSUMÉ **********/
 
 /********** PROJECTS **********/
+
+#projects > .row:last-child > div > .hoverImageContainer {
+    margin: 0;
+}
 
 .hoverImageContainer {
     background-color: #181A1B;
