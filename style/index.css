@@ -4,6 +4,7 @@ html {
 }
 
 body {
+    background-image: url("../images/pics/background.jpg");
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
@@ -58,7 +59,7 @@ main {
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #999999;
+    background: #808CBE;
 }
 
 /********** AREAS **********/
@@ -171,7 +172,7 @@ main {
 }
 
 #footer-content > p > a {
-    color: #808CBE;
+    color:#808CBE;
     text-decoration: none;
 }
 
@@ -303,6 +304,7 @@ section > .articleRow:last-child {
     background-color: #181A1B;
     border-radius: 5px;
     margin: 0px 0px 30px 0px;
+    overflow: hidden;
 }
 
 .hoverDiv {
@@ -324,6 +326,7 @@ section > .articleRow:last-child {
 
 .hoverImageContainer:hover .hoverImage {
     opacity: 0.3;
+    transform: scale(1.1);
 }
 
 .hoverImageContainer:hover .hoverDiv {

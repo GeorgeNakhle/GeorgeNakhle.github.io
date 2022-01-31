@@ -19,13 +19,12 @@
 .socialMediaListItem:last-child {
     margin: 0px 10px 40px 10px;
 }
-
-.socialMediaListItem a:hover > img {
-    filter: invert(68%) sepia(67%) saturate(662%) hue-rotate(191deg) brightness(80%) contrast(81%);
+.socialMediaListItem a {
+    transition: 0.5s ease;
 }
 
-.socialMediaListItem a:hover > span {
-    color: #808CBE;
+.socialMediaListItem a:hover {
+    filter: invert(55%) sepia(10%) saturate(1171%) hue-rotate(191deg) brightness(99%) contrast(99%);
 }
 
 .socialMediaListItem > a > img {
