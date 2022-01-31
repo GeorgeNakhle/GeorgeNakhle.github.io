@@ -20,10 +20,6 @@
     margin: 0px 10px 40px 10px;
 }
 
-.socialMediaListItem a {
-    transition: 0.5s;
-}
-
 .socialMediaListItem a:hover > img {
     filter: invert(68%) sepia(67%) saturate(662%) hue-rotate(191deg) brightness(80%) contrast(81%);
 }
@@ -36,6 +32,7 @@
     width: 80px;
     height: 80px;
     filter: brightness(0) invert(1);
+    cursor: pointer;
 }
 
 .socialMediaListItem > a {
