@@ -12,6 +12,7 @@ body {
     color: white;
     font-family: Lato, sans-serif;
     margin: 0;
+    overflow-y: scroll;
     
     /* CSS grid */
     display: grid;

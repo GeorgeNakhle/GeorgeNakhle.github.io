@@ -1,3 +1,5 @@
+/********** SOCIAL MEDIA **********/
+
 #socialMediaList {
     margin: 0;
     padding: 0;
@@ -40,3 +42,72 @@
     font-size: 13px;
     font-weight: 800;
 }
+
+/********** SOCIAL MEDIA **********/
+
+/*********** FILM DIARY ***********/
+
+#filmDiary {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#filmDiary > li {
+    background-color: #353f69;
+    color: white;
+    margin-bottom: 10px;
+    border-radius: 3px;
+
+    /* CSS grid */
+    display: grid;
+    grid-template-columns: max-content auto;
+    grid-template-areas:
+        "poster diaryEntry";
+}
+
+.filmDiaryEntry {
+    grid-area: diaryEntry;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    list-style: none;
+    margin: 5px;
+    padding: 0;
+}
+
+#filmDiary {
+    margin-bottom: 30px;
+}
+
+.filmPoster {
+    grid-area: poster;
+    border-radius: 3px;
+    margin: 5px;
+}
+
+.filmPoster:hover {
+    outline: 3px solid #808CBE;
+    transition: .1s;
+}
+
+.filmHeader {
+    font-size: 22px;
+}
+
+.filmTitle {
+    font-weight: bold;
+}
+
+.filmYear {
+    font-size: 18px;
+}
+
+.errorText {
+    text-align: center;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+}
+
+/*********** FILM DIARY ***********/
