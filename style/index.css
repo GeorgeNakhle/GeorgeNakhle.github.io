@@ -42,6 +42,18 @@ main {
     grid-area: main;
 }
 
+/********** AREAS **********/
+
+/********** MISC **********/
+
+/* MOBILE */
+@media only screen and (max-width: 996px) {
+    aside {
+      background-color: #353f69;
+      /* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_collapse_sidebar */
+    }
+  }
+
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -62,7 +74,7 @@ main {
     background: #808CBE;
 }
 
-/********** AREAS **********/
+/********** MISC **********/
 
 /********** ASIDE **********/
 
@@ -163,7 +175,7 @@ main {
 
 #footer-content {
     font-size: 13px;
-    padding: 30px 0px 30px 0px;
+    padding: 20px 0px 20px 0px;
     line-height: 24px;
 }
 
