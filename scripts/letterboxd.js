@@ -9,24 +9,31 @@ function getLinkFromDescription (description) {
         return description.match(new RegExp(`src="` + "(.*)" + `"/>`))[1];
 }
 
+function addDayPostfix(day) {
+    return day + (day > 0 ? ['th', 'st', 'nd', 'rd'][(day > 3 && day < 21) || day % 10 > 3 ? 0 : day % 10] : '');
+}
+
 function numberToStars (number) {
     if (number >= 0.5 && number <= 5) {
         var stars = "";
         var numberArr;
 
-        if (number.length > 1)
-            numberArr = number.split('');
-        else
-            numberArr = number;
+        numberArr = number.split('');
 
         for (var i = 0; i < numberArr[0]; i++)
             stars += "★";
 
-        if (numberArr[2] != null)
+        if (numberArr[2] != 0)
             return stars += "½"
         else
             return stars;
     }
+    return "";
+}
+
+function isRewatch (bool) {
+    if (bool == "Yes")
+        return " ↺";
     return "";
 }
 
@@ -42,7 +49,6 @@ fetch(RSS_URL)
     document.getElementById('filmDiary').innerHTML = ""
 
     items = data.getElementsByTagName("channel")[0].getElementsByTagName("item");
-    //console.log(items);
 
     var html = ``;
     var posterWidth = 70;
@@ -56,17 +62,17 @@ fetch(RSS_URL)
     var today = new Date();
 
     for (var i = 0; i < 5; i++) {
-        // console.log("DESC: " + items[i].getElementsByTagName("description")[0].innerHTML);
         link = getLinkToLetterboxd(items[i].getElementsByTagName("link")[0].innerHTML);
         posterLink = getLinkFromDescription(items[i].getElementsByTagName("description")[0].innerHTML);
         filmTitle = items[i].getElementsByTagName("letterboxd:filmTitle")[0].innerHTML.replace('amp;', '');
         filmYear = items[i].getElementsByTagName("letterboxd:filmYear")[0].innerHTML;
         watchedDate = new Date(items[i].getElementsByTagName("letterboxd:watchedDate")[0].innerHTML);
-        watchedDate = `${months[watchedDate.getMonth()]} ${zeroPad(watchedDate.getDate(), 2)}`;
+        watchedDate = `${months[watchedDate.getMonth()]} ${addDayPostfix(watchedDate.getDate())}, ${watchedDate.getFullYear()}`;
         if (items[i].getElementsByTagName("letterboxd:memberRating")[0] != undefined)
             rating = numberToStars(items[i].getElementsByTagName("letterboxd:memberRating")[0].innerHTML);
         else
             rating = numberToStars(0);
+        rewatch = isRewatch(items[i].getElementsByTagName("letterboxd:rewatch")[0].innerHTML);
 
         // Couldn't get anything from RSS
         if (i == 0 && items == null) {
@@ -74,18 +80,22 @@ fetch(RSS_URL)
             posterLink = "../images/socials/letterboxd.jpg";
             filmTitle = "Untitled"
             filmYear = today.getFullYear();
-            watchedDate = `${months[today.getMonth()]} ${zeroPad(today.getDate(), 2)}`;
-            rating = numberToStars("5");
+            watchedDate = `${months[today.getMonth()]} ${addDayPostfix(today.getDate())}, ${today.getFullYear()}`;
+            rating = numberToStars("5.0");
         }
 
         html = `
-            <li>
-                <a class="filmPoster" href="${link}"><img src="${posterLink}" width="${posterWidth}" height="${posterHeight}" alt="${filmTitle} (${filmYear})"></a>
-                <ul class="filmDiaryEntry">
-                    <li class="filmHeader"><span class="filmTitle">${filmTitle} <span class="filmYear">(${filmYear})</span></li>
-                    <li class="filmSubtitle"><span class="watchedDate">${watchedDate}</span> <span class="filmRating">${rating}</span></li>
-                </ul>
-            </li>`;
+            <a href="${link}" target="_blank">
+                <li>
+                    <img class="filmPoster" src="${posterLink}" width="${posterWidth}" height="${posterHeight}" alt="${filmTitle} (${filmYear})">
+                    <ul class="filmDiaryEntry">
+                        <li class="filmHeader"><span class="filmTitle">${filmTitle} <span class="filmYear">(${filmYear})</span></li>
+                        <li class="filmSubtitle"><span class="watchedDate">${watchedDate}</span> <span class="filmRating">${rating}${rewatch}</span></li>
+                    </ul>
+                </li>
+            </a>
+            <hr class="filmHR">`;
+        
         document.getElementById('filmDiary').innerHTML += html;
     }
   });
