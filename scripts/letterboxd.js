@@ -37,8 +37,7 @@ function isRewatch (bool) {
     return "";
 }
 
-// https://cors-anywhere.herokuapp.com/
-const RSS_URL = "https://letterboxd.com/bluepinata/rss/";
+const RSS_URL = "https://cors-anywhere.herokuapp.com/https://letterboxd.com/bluepinata/rss/";
 const zeroPad = (num, places) => String(num).padStart(places, '0');
 const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
