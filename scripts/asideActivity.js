@@ -14,5 +14,3 @@ for (var i = 0; i < sidebarListItems.length; i++) {
         this.className += " active";
     });
 }
-
-//**********//

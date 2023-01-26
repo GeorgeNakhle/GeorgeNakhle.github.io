@@ -62,6 +62,7 @@
 }
 
 #filmDiary > a > li {
+    transition: 0.5s ease;
     /* CSS grid */
     display: grid;
     grid-template-columns: max-content auto;
@@ -78,7 +79,8 @@
 }
 
 #filmDiary a > li:hover .filmRating {
-    color: #353f69
+    color: #353f69;
+    transition: 0.5s ease;
 }
 
 .filmDiaryEntry {
@@ -103,10 +105,11 @@
     border-radius: 3px;
     border: 1px #808CBE solid;
     margin: 10px 10px 10px 10px;
+    transition: 0.5s ease;
 }
 
 .filmTitle {
-    font-size: 20px;
+    font-size: 26px;
     font-weight: bold;
     line-height: 21.6px;
 }

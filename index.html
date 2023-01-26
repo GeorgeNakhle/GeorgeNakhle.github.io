@@ -21,6 +21,12 @@
 </head>
 
 <body>
+    <div id="menuToggle">
+        <div id="hamburger">
+            <span></span>
+        </div>
+    </div>
+    
     <aside>
         <div id="portrait" >
             <a href="/">
@@ -32,7 +38,7 @@
             <span id="subtitle">Computer Science Undergrad</span>
         </div>
         <ul id="sidebarList">
-            <li class="sidebarListItem"><a href="#introduction">Introduction</a></li>
+            <li class="sidebarListItem isActive"><a href="#introduction">Introduction</a></li>
             <li class="sidebarListItem"><a href="#resume">Résumé</a></li>
             <li class="sidebarListItem"><a href="#projects">Projects</a></li>
             <li class="sidebarListItem"><a href="#contact_me">Contact Me</a></li>
@@ -83,7 +89,7 @@
                         <img class="colImage" src="./images/pics/legothon.png" alt="LEGOthon 2019 banner">
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 order-first order-md-last">
                     <div class="colContainer">
                         <h2 class="title">Charity Speedrunning</h2>
                         <p class="colText">A hobby I'm passionate about is speedrunning, the act of completing video-games as fast as possible. It's given me success in self-improvement, meeting new people, and even contributing to charity. In 2019, I volunteered as an event organizer for the annual online speedrunning charity marathon dubbed LEGOthon, benefiting <a class="mainLink" href="https://www.stjude.org/" rel="noopener" target="_blank">St. Jude's Children's Research Hospital</a>. I was responsible for scheduling, moderation, commentary, performing, and more. The event spanned over 4 days, 12 hours each, and was broadcasted to 50+ viewers on average. Our initial donation goal for the marathon was $100.00, but our efforts were successful enough in raising $671.00! LEGOthon remains an annual marathon to this day and I'm grateful to have contributed to its success.</p>
@@ -116,24 +122,24 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="colContainer colContainerImage hoverImageContainer">
-                        <img class="colImage hoverImage" src="./images/screenshots/teamtalkapp.png" alt="Screenshot from Team Talk app">
-                        <div class="hoverDiv">
-                            <div class="hoverTitle">Team Talk App</div>
-                            <div class="hoverText">Instant messaging Node.js application for real-time communication between clients. Contains a WebSocket API for interacting with a MySQL database.</div>
-                            <div class="centerButton">
-                                <a class="hoverButton" href="https://github.com/GeorgeNakhle/OOP-Project" rel="noopener" target="_blank">GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="colContainer colContainerImage hoverImageContainer">
                         <img class="colImage hoverImage" src="./images/screenshots/bikeguysstore.png" alt="Screenshot from Bike Guys® store">
                         <div class="hoverDiv">
                             <div class="hoverTitle">Bike Guys® Store</div>
                             <div class="hoverText">ASP.NET Core web application written in C# that interfaces with a MySQL database. Collaborative project utlizing the Scrum development framework.</div>
                             <div class="centerButton">
                                 <a class="hoverButton" href="./assets/NakhleGeorge_SmoothBikeStore.zip" target="_blank">Download ⇓</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="colContainer colContainerImage hoverImageContainer">
+                        <img class="colImage hoverImage" src="./images/screenshots/teamtalkapp.png" alt="Screenshot from Team Talk app">
+                        <div class="hoverDiv">
+                            <div class="hoverTitle">Team Talk App</div>
+                            <div class="hoverText">Instant messaging Node.js application for real-time communication between clients. Contains a WebSocket API for interacting with a MySQL database.</div>
+                            <div class="centerButton">
+                                <a class="hoverButton" href="https://github.com/GeorgeNakhle/OOP-Project" rel="noopener" target="_blank">GitHub</a>
                             </div>
                         </div>
                     </div>
@@ -189,26 +195,26 @@
             </div>
             <form action="https://formspree.io/f/myyokoel" method="POST">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-sm-6">
                         <fieldset class="contactField">
                             <input name="name" type="text" id="name" placeholder="Name" required>
                         </fieldset>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-sm-6">
                         <fieldset class="contactField">
                             <input name="email" type="email" id="email" placeholder="Email" required>
                         </fieldset>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-12">
                         <fieldset class="contactField">
                             <input name="subject" type="text" id="subject" placeholder="Subject" required>
                         </fieldset>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-12">
                         <fieldset class="contactField">
                             <textarea name="message" type="text" id="message" placeholder="Message" required></textarea>
                         </fieldset>
@@ -222,17 +228,13 @@
     </main>
 
     <!-- Scripts -->
-    <script src="./scripts/index.js"></script>
+    <!-- <script src="./scripts/asideActivity.js"></script> -->
+    <script src="./scripts/mobileButton.js"></script>
 </body>
 
 </html>
 
 <!-- TODO LIST
-    Mobile support (responsive web design).
     Make scrollbar active change on scroll.
     Slideshow for Introduction images.
-    Make page less wide on fullscreen.
-    Add 'external' svg to buttons (link icon).
 -->
-
-<!-- OPEN W/ LIVE SERVER -->
