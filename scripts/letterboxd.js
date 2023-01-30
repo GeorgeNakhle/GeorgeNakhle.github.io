@@ -46,7 +46,7 @@ fetch(RSS_URL)
     .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
     .then(data => {
         items = data.getElementsByTagName("channel")[0].getElementsByTagName("item");
-
+;
         if (items != null || items[i].getElementsByTagName("link")[0].innerHTML == null)
             document.getElementById('filmDiary').innerHTML = "";
 
@@ -67,6 +67,7 @@ fetch(RSS_URL)
             filmTitle = items[i].getElementsByTagName("letterboxd:filmTitle")[0].innerHTML.replace('amp;', '');
             filmYear = items[i].getElementsByTagName("letterboxd:filmYear")[0].innerHTML;
             watchedDate = new Date(items[i].getElementsByTagName("letterboxd:watchedDate")[0].innerHTML);
+            watchedDate = new Date(watchedDate.getTime() + (480*60*1000));
             watchedDate = `${months[watchedDate.getMonth()]} ${addDayPostfix(watchedDate.getDate())}, ${watchedDate.getFullYear()}`;
             if (items[i].getElementsByTagName("letterboxd:memberRating")[0] != undefined)
                 rating = numberToStars(items[i].getElementsByTagName("letterboxd:memberRating")[0].innerHTML);
