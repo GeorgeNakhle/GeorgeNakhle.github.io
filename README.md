@@ -13,13 +13,15 @@ This is my personal website written with HTML, CSS, and JavaScript.
 - **Résumé**
   - PDF link
 - **Projects**
-  - Team Talk App
-  - BlueBot Discord Bot
   - Bike Guys® Store
+  - Team Talk App
+  - Daily OMORI Music
+  - BlueBot Discord Bot
   - SpaceX Statistics Website
 - **Contact Me**
   - Email link
   - Message form
 - **Misc.**
   - Social media links
+  - Film diary
   - Donation link

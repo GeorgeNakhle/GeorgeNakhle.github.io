@@ -1,93 +1,152 @@
-function getLinkToLetterboxd(link) {
-    return link.replace("/bluepinata", "");
-}
+class Film {
 
-function getLinkFromDescription (description) {
-    if (description.indexOf(`"`) == -1)
-        return "../images/socials/letterboxd.jpg"
-    else
-        return description.match(new RegExp(`src="` + "(.*)" + `"/>`))[1];
-}
+    // #region PROPERTIES
+    static posterWidth = 70;
+    static posterHeight = 105;
+    #months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    // #endregion
 
-function addDayPostfix(day) {
-    return day + (day > 0 ? ['th', 'st', 'nd', 'rd'][(day > 3 && day < 21) || day % 10 > 3 ? 0 : day % 10] : '');
-}
-
-function numberToStars (number) {
-    if (number >= 0.5 && number <= 5) {
-        var stars = "";
-        var numberArr;
-
-        numberArr = number.split('');
-
-        for (var i = 0; i < numberArr[0]; i++)
-            stars += "★";
-
-        if (numberArr[2] != 0)
-            return stars += "½"
-        else
-            return stars;
+    // #region CONSTRUCTORS
+    constructor (_XML) {
+        this.link = _XML.getElementsByTagName("link")[0].innerHTML;
+        this.poster = _XML.getElementsByTagName("description")[0].innerHTML;
+        this.title = _XML.getElementsByTagName("letterboxd:filmTitle")[0].innerHTML;
+        this.year = _XML.getElementsByTagName("letterboxd:filmYear")[0].innerHTML;
+        this.watchedDate = _XML.getElementsByTagName("letterboxd:watchedDate")[0].innerHTML;
+        this.rating = _XML.getElementsByTagName("letterboxd:memberRating")[0];
+        this.rewatch = _XML.getElementsByTagName("letterboxd:rewatch")[0].innerHTML;
     }
-    return "";
-}
+    // #endregion
 
-function isRewatch (bool) {
-    if (bool == "Yes")
-        return " ↺";
-    return "";
+    // #region METHODS
+
+    #addDayPostfix(day) {
+        return day + (day > 0 ? ['th', 'st', 'nd', 'rd'][(day > 3 && day < 21) || day % 10 > 3 ? 0 : day % 10] : '');
+    }
+    
+
+    #numberToStars (number) {
+        if (number >= 0.5 && number <= 5) {
+            var stars = "";
+            var numberArr;
+    
+            numberArr = number.split('');
+    
+            for (var i = 0; i < numberArr[0]; i++)
+                stars += "★";
+    
+            if (numberArr[2] != 0)
+                return stars += "½"
+            else
+                return stars;
+        }
+        return "";
+    }
+
+    // #endregion
+
+    // #region GETTERS
+    get link() {
+        return this._link;
+    }
+
+    get poster() {
+        return this._poster;
+    }
+
+    get title() {
+        return this._title;
+    }
+
+    get year() {
+        return this._year;
+    }
+
+    get watchedDate() {
+        return this._watchedDate;
+    }
+
+    get rating() {
+        return this._rating;
+    }
+
+    get rewatch() {
+        return this._rewatch;
+    }
+    // #endregion
+
+    // #region SETTERS
+    set link(link) {
+        this._link = link.replace("/bluepinata", "");
+    }
+
+    set poster(poster) {
+        if (poster.indexOf(`"`) == -1)
+            this._poster = "../images/socials/letterboxd.jpg";
+        else
+            this._poster = poster.match(new RegExp(`src="` + "(.*)" + `"/>`))[1];
+    }
+
+    set title(title) {
+        this._title = title.replace('amp;', '');
+    }
+
+    set year(year) {
+        this._year = year;
+    }
+
+    set watchedDate(watchedDate) {
+        watchedDate = new Date(watchedDate);
+        watchedDate = new Date(watchedDate.getTime() + (480*60*1000));
+        this._watchedDate = `${this.#months[watchedDate.getMonth()]} ${this.#addDayPostfix(watchedDate.getDate())}, ${watchedDate.getFullYear()}`;
+    }
+
+    set rating(rating) {
+        if (rating != undefined)
+            this._rating = this.#numberToStars(rating.innerHTML);
+        else
+            this._rating = this.#numberToStars(0);
+    }
+
+    set rewatch(rewatch) {
+        if (rewatch == "Yes")
+            this._rewatch = " ↺";
+        else
+            this._rewatch = "";
+    }
+    // #endregion
 }
 
 const RSS_URL = 'https://corsproxy.io/?' + encodeURIComponent('https://letterboxd.com/bluepinata/rss/');;
-const zeroPad = (num, places) => String(num).padStart(places, '0');
-const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 fetch(RSS_URL)
     .then(response => response.text())
     .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
     .then(data => {
-        items = data.getElementsByTagName("channel")[0].getElementsByTagName("item");
-;
-        if (items != null || items[i].getElementsByTagName("link")[0].innerHTML == null)
+        var html = ``;
+        var film;
+        var items = data.getElementsByTagName("channel")[0].getElementsByTagName("item");
+
+        if (items != null || items[0].getElementsByTagName("link")[0].innerHTML != null) {
             document.getElementById('filmDiary').innerHTML = "";
 
-        var html = ``;
-        var posterWidth = 70;
-        var posterHeight = 105;
-        var link = ".";
-        var watchedDate;
-        var posterLink;
-        var filmTitle;
-        var watchedDate;
-        var rating = 0; 
-        var today = new Date();
+            for (var i = 0; i < 5; i++) {
+                film = new Film(items[i]);
 
-        for (var i = 0; i < 5; i++) {
-            link = getLinkToLetterboxd(items[i].getElementsByTagName("link")[0].innerHTML);
-            posterLink = getLinkFromDescription(items[i].getElementsByTagName("description")[0].innerHTML);
-            filmTitle = items[i].getElementsByTagName("letterboxd:filmTitle")[0].innerHTML.replace('amp;', '');
-            filmYear = items[i].getElementsByTagName("letterboxd:filmYear")[0].innerHTML;
-            watchedDate = new Date(items[i].getElementsByTagName("letterboxd:watchedDate")[0].innerHTML);
-            watchedDate = new Date(watchedDate.getTime() + (480*60*1000));
-            watchedDate = `${months[watchedDate.getMonth()]} ${addDayPostfix(watchedDate.getDate())}, ${watchedDate.getFullYear()}`;
-            if (items[i].getElementsByTagName("letterboxd:memberRating")[0] != undefined)
-                rating = numberToStars(items[i].getElementsByTagName("letterboxd:memberRating")[0].innerHTML);
-            else
-                rating = numberToStars(0);
-            rewatch = isRewatch(items[i].getElementsByTagName("letterboxd:rewatch")[0].innerHTML);
-
-            html = `
-                <a href="${link}" target="_blank">
-                    <li>
-                        <img class="filmPoster" src="${posterLink}" width="${posterWidth}" height="${posterHeight}" alt="${filmTitle} (${filmYear})">
-                        <ul class="filmDiaryEntry">
-                            <li class="filmHeader"><span class="filmTitle">${filmTitle} <span class="filmYear">(${filmYear})</span></li>
-                            <li class="filmSubtitle"><span class="watchedDate">${watchedDate}</span> <span class="filmRating">${rating}${rewatch}</span></li>
-                        </ul>
-                    </li>
-                </a>
-                <hr class="filmHR">`;
-            
-            document.getElementById('filmDiary').innerHTML += html;
+                html = `
+                    <a href="${film.link}" target="_blank">
+                        <li>
+                            <img class="filmPoster" src="${film.poster}" width="${Film.posterWidth}" height="${Film.posterHeight}" alt="${film.title} (${film.year})">
+                            <ul class="filmDiaryEntry">
+                                <li class="filmHeader"><span class="filmTitle">${film.title} <span class="filmYear">(${film.year})</span></li>
+                                <li class="filmSubtitle"><span class="watchedDate">${film.watchedDate}</span> <span class="filmRating">${film.rating}${film.rewatch}</span></li>
+                            </ul>
+                        </li>
+                    </a>
+                    <hr class="filmHR">`;
+                
+                document.getElementById('filmDiary').innerHTML += html;
+            }
         }
     }
   );
