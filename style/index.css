@@ -177,8 +177,9 @@ main {
 }
 
 #footer-content > p > a {
-    color:#808CBE;
     text-decoration: none;
+    color:white;
+    font-weight: bold;
 }
 
 /********** ASIDE **********/
@@ -544,13 +545,13 @@ section:last-child {
     }
 
     section {
-        padding-left: 80px;
-        padding-right: 80px;
+        padding-left: 70px;
+        padding-right: 70px;
     }
 
     .sectionLine {
-        margin-left: 80px;
-        margin-right: 80px;
+        margin-left: 70px;
+        margin-right: 70px;
     }
 }
 

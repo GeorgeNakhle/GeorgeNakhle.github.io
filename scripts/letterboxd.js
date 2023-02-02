@@ -135,16 +135,16 @@ fetch(RSS_URL)
                 film = new Film(items[i]);
 
                 html = `
-                    <a href="${film.link}" target="_blank">
-                        <li>
+                    <li class="filmDiaryEntry">
+                        <a href="${film.link}" target="_blank">
                             <img class="filmPoster" src="${film.poster}" width="${Film.posterWidth}" height="${Film.posterHeight}" alt="${film.title} (${film.year})">
-                            <ul class="filmDiaryEntry">
+                            <ul class="filmDiaryEntryData">
                                 <li class="filmHeader"><span class="filmTitle">${film.title} <span class="filmYear">(${film.year})</span></li>
                                 <li class="filmSubtitle"><span class="watchedDate">${film.watchedDate}</span> <span class="filmRating">${film.rating}${film.rewatch}</span></li>
                             </ul>
-                        </li>
-                    </a>
-                    <hr class="filmHR">`;
+                        </a>
+                        <hr class="filmHR">
+                    </li>`;
                 
                 document.getElementById('filmDiary').innerHTML += html;
             }

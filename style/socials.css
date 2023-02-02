@@ -53,12 +53,12 @@
     list-style: none;
 }
 
-#filmDiary > a {
+.filmDiaryEntry > a {
     text-decoration: none;
     color: white;
 }
 
-#filmDiary > a > li {
+.filmDiaryEntry > a {
     transition: 0.5s ease;
     /* CSS grid */
     display: grid;
@@ -67,20 +67,15 @@
         "poster diaryEntry";
 }
 
-#filmDiary > a > li:hover {
+.filmDiaryEntry > a:hover {
     background-color: #808CBE;
 }
 
-#filmDiary a > li:hover .filmPoster {
+.filmDiaryEntry> a:hover .filmPoster {
     border: 1px #353f69 solid;
 }
 
-#filmDiary a > li:hover .filmRating {
-    color: #353f69;
-    transition: 0.5s ease;
-}
-
-.filmDiaryEntry {
+.filmDiaryEntryData {
     grid-area: diaryEntry;
     display: flex;
     flex-direction: column;
@@ -121,7 +116,7 @@
 }
 
 .filmRating {
-    color: #808CBE;
+    color: white;
 }
 
 .filmHR {
