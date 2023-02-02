@@ -543,16 +543,6 @@ section:last-child {
         height: 125px;
         width: 125px;
     }
-
-    section {
-        padding-left: 70px;
-        padding-right: 70px;
-    }
-
-    .sectionLine {
-        margin-left: 70px;
-        margin-right: 70px;
-    }
 }
 
 /* MOBILE */
