@@ -1,4 +1,8 @@
-# George Nakhle
+# georgenakhle.github.io
+
+![George_Nakhle_portrait](images/pics/portrait-readme.png)
+
+**Author**: George Nakhle
 
 ## About
 

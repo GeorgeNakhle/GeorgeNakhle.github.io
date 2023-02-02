@@ -77,7 +77,8 @@ class Film {
 
     // #region SETTERS
     set link(link) {
-        this._link = link.replace("/bluepinata", "");
+        var linkArr = link.split("/");
+        this._link = `https://letterboxd.com/film/${linkArr[5]}/`;
     }
 
     set poster(poster) {

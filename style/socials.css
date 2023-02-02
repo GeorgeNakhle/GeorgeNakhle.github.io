@@ -1,5 +1,9 @@
 /********** SOCIAL MEDIA **********/
 
+#socials {
+    padding-bottom: 40px; /* Because of padding on last row in socialMediaList */
+}
+
 #socialMediaList {
     margin: 0;
     padding: 0;
@@ -14,13 +18,6 @@
     margin: 0px 10px 40px 10px;
 }
 
-.socialMediaListItem:first-child {
-    margin: 0px 10px 40px 0px;
-}
-
-.socialMediaListItem:last-child {
-    margin: 0px 10px 40px 10px;
-}
 .socialMediaListItem a {
     transition: 0.5s ease;
 }
