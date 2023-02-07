@@ -125,7 +125,7 @@ main {
     transition: .5s ease;
 }
 
-.sidebarListItem a:hover {
+.sidebarListItem a:hover, .activeSidebarListItem {
     background-color: #808CBE;
 }
 
