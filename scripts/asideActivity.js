@@ -1,6 +1,5 @@
 const sections = document.querySelectorAll("section");
-var links = document.querySelectorAll(".sidebarListItem");
-links = document.querySelectorAll("a");
+const links = document.querySelectorAll(".sidebarListItem > a");
 
 function asideActivity() {
     var scrollPosition = window.scrollY + 80;
