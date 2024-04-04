@@ -118,7 +118,7 @@ class Film {
     // #endregion
 }
 
-const RSS_URL = 'https://corsproxy.io/?' + encodeURIComponent('https://letterboxd.com/bluepinata/rss/');;
+const RSS_URL = 'https://api.codetabs.com/v1/proxy?quest=https://letterboxd.com/bluepinata/rss/';
 
 fetch(RSS_URL)
     .then(response => response.text())
